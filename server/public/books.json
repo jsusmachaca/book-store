@@ -84,6 +84,23 @@
         "https://fakeimg.pl/600x400/?text=Brave2",
         "https://fakeimg.pl/600x400/?text=Brave3"
       ]
+    },
+    {
+      "id": 5,
+      "title": "Brave",
+      "description": "A dystopian novel by Aldous Huxley about a futuristic society driven by technological advancements.",
+      "price": 11.99,
+      "discountPercentage": 8.0,
+      "rating": 4.6,
+      "stock": 60,
+      "author": "Aldous Huxley",
+      "category": "Dystopian",
+      "thumbnail": "https://fakeimg.pl/350x200/?text=Brave",
+      "images": [
+        "https://fakeimg.pl/600x400/?text=Brave1",
+        "https://fakeimg.pl/600x400/?text=Brave2",
+        "https://fakeimg.pl/600x400/?text=Brave3"
+      ]
     }
   ]
 }

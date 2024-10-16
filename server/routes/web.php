@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/api/books', [BookController::class, 'search_book']);
+Route::get('/api/books/{id}', [BookController::class, 'book']);
