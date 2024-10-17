@@ -3,6 +3,7 @@ import Gallery from "./pages/Gallery"
 import Home from "./pages/Home"
 import BookInfo from "./pages/BookInfo"
 import { SearchBar } from "./components/SearchBar"
+import Header from "./components/Header"
 
 function App() {
   const location = useLocation()
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <main className=" h-full flex items-center flex-col">
+      <Header />
       {!regex.test(pathname) && <SearchBar />}
       <Routes>
         <Route path="/" element={<Home />} />

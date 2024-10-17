@@ -39,10 +39,10 @@ const BookInfo = () => {
     } else {
       navigate('/')
     }
-  }, [id])
+  }, [id, navigate])
 
   return (
-    <section className='h-full w-fit grid grid-cols-2 gap-10 justify-items-center mt-56'>
+    <section className='w-fit grid grid-cols-2 gap-10 justify-items-center mt-40'>
       <Carousell images={book.images} />
       <article>
         <h1 className='text-6xl font-extrabold'>{ book.title }</h1>

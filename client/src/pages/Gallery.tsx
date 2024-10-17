@@ -27,11 +27,11 @@ const Gallery = () => {
     } else {
       natigate('/')
     }
-  }, [book])
+  }, [book, natigate])
 
   return (
     <section className='grid justify-items-center items-center transition-all'>
-      <div className='mt-40 grid grid-cols-3 w-fit gap-6 items-center'>
+      <div className='mt-20 grid grid-cols-3 w-fit gap-6 items-center'>
         {books.map((d, i) =>(
           <BookItem key={i} {...d} />
         ))}
