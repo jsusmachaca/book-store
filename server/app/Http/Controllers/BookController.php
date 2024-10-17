@@ -8,13 +8,18 @@ use function PHPUnit\Framework\stringStartsWith;
 
 class BookController extends Controller
 {
+    private $books;
+
+    public function __construct()
+    {
+        $file = file_get_contents(public_path('books.json'));
+        $json = json_decode($file, true);
+        $this->books = $json['books'];
+    }
+
     public function book(int $id)
     {
-        $file = file_get_contents(public_path('books.json'));   
-        $json = json_decode($file, true);
-        $books = $json['books'];
-
-        $filter_book = array_filter($books, function($book) use ($id) {
+        $filter_book = array_filter($this->books, function($book) use ($id) {
             $book_id = $book['id'];
 
             return $book_id === $id;
@@ -31,12 +36,8 @@ class BookController extends Controller
             ];
             return $response;
         }
-
-        $file = file_get_contents(public_path('books.json'));   
-        $json = json_decode($file, true);
-        $books = $json['books'];
         
-        $filter_book = array_filter($books, function($book) use ($query) {
+        $filter_book = array_filter($this->books, function($book) use ($query) {
             $title = strtolower($book['title']);
 
             return str_starts_with($title, $query);
