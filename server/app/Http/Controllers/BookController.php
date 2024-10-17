@@ -34,7 +34,7 @@ class BookController extends Controller
             $response = [
                 "message" => "please search a book"
             ];
-            return $response;
+            return response()->json($response);
         }
         
         $filter_book = array_filter($this->books, function($book) use ($query) {
