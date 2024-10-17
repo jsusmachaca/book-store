@@ -86,12 +86,12 @@
       ]
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Brave",
       "description": "A dystopian novel by Aldous Huxley about a futuristic society driven by technological advancements.",
-      "price": 11.99,
+      "price": 1,
       "discountPercentage": 8.0,
-      "rating": 4.6,
+      "rating": 1,
       "stock": 60,
       "author": "Aldous Huxley",
       "category": "Dystopian",

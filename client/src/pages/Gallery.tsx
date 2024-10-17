@@ -4,10 +4,12 @@ import { Book } from '../types/global'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { AxiosError } from 'axios'
 import BookItem from '../components/BookItem'
+import Spiner from '../components/Spiner'
 
 const Gallery = () => {
   const [books, setBooks] = useState<Book[]>([])
   const [searchParam] = useSearchParams()
+  const [loading, setLoading] = useState(true)
   const book = searchParam.get('search')
   const natigate = useNavigate()
 
@@ -17,8 +19,10 @@ const Gallery = () => {
         const res = await apiClient.get(`/api/books?q=${book}`)
         console.log('obtaining data')
         setBooks(res.data)
+        setLoading(false)
       } catch (err) {
         console.error((err as AxiosError).response?.data)
+        setLoading(true)
       }
     }
 
@@ -31,11 +35,16 @@ const Gallery = () => {
 
   return (
     <section className='grid justify-items-center items-center transition-all'>
-      <div className='mt-20 grid grid-cols-3 w-fit gap-6 items-center'>
-        {books.map((d, i) =>(
-          <BookItem key={i} {...d} />
-        ))}
-      </div>
+      {
+        loading ?
+          <Spiner />
+        :
+          <div className='mt-20 grid grid-cols-3 w-fit gap-6 items-center'>
+            {books.map((d, i) =>(
+              <BookItem key={i} {...d} />
+            ))}
+          </div>
+      }
     </section>
   )
 }
