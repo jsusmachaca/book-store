@@ -46,6 +46,7 @@ class BookController extends Controller
 
             return str_starts_with($title, $query);
         });
+
         return response()->json(array_values($filter_book));
     }
 }
