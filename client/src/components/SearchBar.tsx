@@ -14,7 +14,7 @@ export const SearchBar = () => {
 
   return (
     <form onSubmit={handleSubmit} 
-      className=" w-96 top-0 static mt-10 flex px-4 py-3 rounded-md border-2 border-blue-500 overflow-hidden max-w-md mx-auto font-[sans-serif]">
+      className=" w-96 top-0 static mt-28 flex px-4 py-3 rounded-md border-2 border-blue-500 overflow-hidden max-w-md mx-auto font-[sans-serif]">
       <input type="text" placeholder="Search a Book"
         className="w-full outline-none bg-transparent text-gray-600 text-sm"
         value={book}
