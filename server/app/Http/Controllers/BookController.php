@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use function PHPUnit\Framework\stringStartsWith;
-
 class BookController extends Controller
 {
     private $books;
@@ -21,9 +19,15 @@ class BookController extends Controller
     {
         $filter_book = array_filter($this->books, function($book) use ($id) {
             $book_id = $book['id'];
-
             return $book_id === $id;
         });
+        if (!$filter_book) {
+            $response = [
+                "error" => "book not found"
+            ];
+            return response()->json($response, 400);
+        }
+
         return response()->json(array_values($filter_book)[0]);
     }
 
